@@ -1,0 +1,8 @@
+{
+  "label": "Admins",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentation for admins of CentralAuth tenants and organizations."
+  }
+}
