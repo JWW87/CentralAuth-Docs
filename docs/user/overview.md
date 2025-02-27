@@ -11,10 +11,10 @@ CentralAuth offers multiple authentication methods to ensure secure and convenie
 ## Passkeys (WebAuthn)
 Modern, password-less authentication using your device's secure hardware. Supports fingerprint readers, facial recognition, security keys etc.
 
-## Email Authentication
+## Email authentication
 Secure login via one-time codes sent to your verified email address. No password required.
 
-## OAuth Providers
+## OAuth providers
 Sign in using your existing accounts from trusted providers:
 - Google
 - Microsoft
