@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Passkey
+# Passkeys
 
 A passkey is a simple and secure way to log into your accounts without using traditional passwords. Think of it as a digital key that's unique to you and your device, making it much safer than remembering and typing passwords.
 
