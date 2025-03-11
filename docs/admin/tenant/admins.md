@@ -24,6 +24,6 @@ Click on the **Invite new admin** button to send an invitation. Enter the email 
 There are five admin roles in CentralAuth:
 - **Owner**: The owner is the creator of the tenant. The owner has full control over the tenant and can manage all settings and other admins. The owner cannot be deleted from the tenant.
 - **Admin**: Admins have full control over the tenant and can manage all settings and other admins.
-- **Organization admin**: Organization admins can manage organization settings and users but cannot manage tenant settings or other admins.
-- **Financial admin**: Financial admins can manage billing and subscription settings but cannot manage tenant settings or other admins.
-- **User admin**: User managers can manage users on the tenant's organizations but cannot manage tenant settings or other admins.
+- **Organization admin**: Organization admins can manage organization settings but cannot manage tenant settings or users.
+- **Financial admin**: Financial admins can manage billing and subscription settings but cannot manage tenant settings or users.
+- **User admin**: User admins can manage users on the tenant's organizations but cannot manage tenant settings or other admins.
