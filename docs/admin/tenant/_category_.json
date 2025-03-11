@@ -1,0 +1,8 @@
+{
+  "label": "Tenant page",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentation for the tenant page in CentralAuth."
+  }
+}

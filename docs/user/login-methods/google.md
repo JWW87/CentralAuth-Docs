@@ -14,7 +14,7 @@ CentralAuth allows you to log in using your Google account.
 
 - You will be redirected to the Google login page.
 
-<img src="/img/OAuthGoogle.png" alt="Google login screen" width="50%" height="50%" />
+<img src="/img/OAuthGoogle.png" alt="Google login screen" />
 
 - Enter your Google credentials to log in.
 
