@@ -6,8 +6,8 @@ sidebar_position: 4
 
 This tab displays a list of API keys that have been created for the organization. You can use API keys to make requests to the CentralAuth API from an external system. Check the [API docs](https://centralauth.com/api_doc) for more information. An API key created under an organization can only be used for this organization.
 
-:::warning
-Please ensure that you keep your API keys secure. Treat them as passwords and do not share them with anyone.
+:::caution
+Please ensure that you keep your API keys secure. Treat them like a password and do not share them with anyone outside your team.
 :::
 
 ## Creating an API key
