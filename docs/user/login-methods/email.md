@@ -31,10 +31,12 @@ The exact email you will receive depends on the organization's settings. It may 
 :::info
 You may see two login links in the email, based on the organization's settings. You can use either link to log in. The first link logs you in on the device you are using to open the email, while the second link logs you in on the device you used to start the login flow. If you experience any issues, please reach out to your organization's support team for assistance.
 :::
+
 </details>
 
 <details>
 <summary>Challenge</summary>
+
 - You will receive an email with three numbers. One will correspond with the token displayed on the login screen. 
 - Click the correct number in the email to log in.
 - If you click the wrong number, you will be asked to try again.
@@ -43,14 +45,17 @@ You may see two login links in the email, based on the organization's settings. 
 :::info
 You will be logged in on the device you used to start the login flow.
 :::
+
 </details>
 
 <details>
 <summary>One-time code</summary>
+
 - You will receive an email with a 5-digit number.
 - Copy the number to the input field in your browser to log in.
 - If you input the wrong number, you will be asked to try again.
 - Make sure to check your spam folder if you do not see the email.
+
 </details>
 
 ## Undo a login attempt
