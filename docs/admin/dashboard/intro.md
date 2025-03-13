@@ -1,8 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 
-# CentralAuth dashboard
+# Introduction
 
 The CentralAuth dashboard provides an overview of the tenants you manage. This guide will help you navigate the dashboard and understand the key features available to each admin role.
 

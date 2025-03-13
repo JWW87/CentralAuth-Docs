@@ -23,7 +23,7 @@ A passkey is a simple and secure way to log into your accounts without using tra
 
 ## How to register a passkey
 
-- When you start the CentralAuth login flow, click on the **Login with a passkey** button. 
+- When you start the CentralAuth login flow, click on the `Login with a passkey` button. 
 
 <img src="/img/LoginScreen.png" alt="CentralAuth login screen" width="50%" height="50%" />
 
@@ -31,11 +31,11 @@ A passkey is a simple and secure way to log into your accounts without using tra
 
 <img src="/img/PasskeyScreen.png" alt="CentralAuth passkey screen" width="50%" height="50%" />
 
-- Click the **Register a new passkey** button to start the registration process.
+- Click the `Register a new passkey` button to start the registration process.
 
 <img src="/img/PasskeyRegistrationScreen.png" alt="CentralAuth registration screen" width="50%" height="50%" />
 
-- Enter your email address and click the **Log in** button. You will receive an email with a 5-digit code. Enter the code to verify your email address.
+- Enter your email address and click the `Log in` button. You will receive an email with a 5-digit code. Enter the code to verify your email address.
 
 - You will be asked to set up your passkey. This process will vary depending on the device you are using, e.g.:
 
@@ -47,7 +47,7 @@ A passkey is a simple and secure way to log into your accounts without using tra
 
 ## How to use an existing passkey
 
-- When you start the CentralAuth login flow, click on the **Login with a passkey** button.
+- When you start the CentralAuth login flow, click on the `Login with a passkey` button.
 
 <img src="/img/LoginScreen.png" alt="CentralAuth login screen" width="50%" height="50%" />
 
@@ -55,6 +55,6 @@ A passkey is a simple and secure way to log into your accounts without using tra
 
 <img src="/img/PasskeyScreen.png" alt="CentralAuth passkey screen" width="50%" height="50%" />
 
-- Click the **Use an existing passkey** button to show the passkey prompt from your device.
+- Click the `Use an existing passkey` button to show the passkey prompt from your device.
 
 - Follow the instructions on your device to log in using your passkey.

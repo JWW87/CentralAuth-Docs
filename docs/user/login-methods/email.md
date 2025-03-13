@@ -12,11 +12,11 @@ The exact email you will receive depends on the organization's settings. It may 
 
 <img src="/img/LoginScreen.png" alt="CentralAuth login screen" width="50%" height="50%" />
 
-- When you start the CentralAuth login flow, click on the **Email** button.
+- When you start the CentralAuth login flow, click on the `Email` button.
 
 <img src="/img/EmailAuthenticationScreen.png" alt="Email authentication screen" width="50%" height="50%" />
 
-- Enter your email address and click the **Log in** button.
+- Enter your email address and click the `Log in` button.
 
 ## Login options
 
@@ -54,4 +54,4 @@ You will be logged in on the device you used to start the login flow.
 </details>
 
 ## Undo a login attempt
-When you use a one-time login link or a challenge, you may see the option to undo a login attempt when returning to your browser. If you made a mistake or do not trust the login attempt, you can click the **Undo** button to cancel the session.
+When you use a one-time login link or a challenge, you may see the option to undo a login attempt when returning to your browser. If you made a mistake or do not trust the login attempt, you can click the `Undo` button to cancel the session.

@@ -13,7 +13,7 @@ CentralAuth uses three different kinds of Captcha challenges:
 
 ## Checkbox
 
-The checkbox Captcha challenge is the simplest type of Captcha. To complete the challenge, click on the checkbox next to the label **I am a human** to verify that you are not a robot.
+The checkbox Captcha challenge is the simplest type of Captcha. To complete the challenge, click on the checkbox next to the label `I am a human` to verify that you are not a robot.
 
 <img src="/img/EmailAuthenticationScreenCaptcha.png" alt="Login screen with Captcha checkbox" width="50%" height="50%" />
 

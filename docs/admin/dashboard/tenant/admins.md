@@ -18,7 +18,7 @@ You cannot edit or delete your own admin account or the owner of the tenant.
 ## Pending invitations
 This overview displays a list of pending invitations to join the tenant. You can delete the invitation if it has not been accepted yet.
 
-Click on the **Invite new admin** button to send an invitation. Enter the email address of the user you want to invite and select the role you want to assign to the user. The user will receive an email with a link to accept the invitation and join the tenant.
+Click on the `Invite new admin` button to send an invitation. Enter the email address of the user you want to invite and select the role you want to assign to the user. The user will receive an email with a link to accept the invitation and join the tenant.
 
 ## Admin roles
 There are five admin roles in CentralAuth:
