@@ -11,8 +11,12 @@ This tab shows all OAuth providers you have enabled for this organization.
 Click the `Add OAuth provider` button to add a new OAuth provider. You can choose from the following providers:
 
 - Google
-- GitHub
 - Microsoft
+- GitHub
+
+:::tip
+More providers will be added in the future. Check back soon for updates.
+:::
 
 ## OAuth credentials
 
@@ -29,8 +33,10 @@ Both client ID and client secret can be found in the developer console of the re
 - [Microsoft Entra ID docs](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)
 - [GitHub OAuth docs](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)
 
+When setting up your own OAuth app, make sure to start the redirect URL to `https://centralauth.com/api/oauth/callback` if you're not using a custom domain. If you are using a custom domain, use that instead. For example, if your custom domain is `login.example.com`, the redirect URL should be `https://login.example.com/api/oauth/callback`.
+
 :::warning
-OAuth providers using the default CentralAuth credentials only work with the default CentralAuth domain. If you want to use your own custom domain, you have to use your own credentials. Any OAuth provider using the default CentralAuth credentials will not be enabled on the login screen on custom domains.
+OAuth providers using the default CentralAuth credentials only work with the default CentralAuth domain. If you want to use your own custom domain, you have to use your own credentials. Any OAuth provider using the default CentralAuth credentials will not be enabled on the login screen on custom domains. You can find more details in the [custom domains](/admin/dashboard/organization/settings#custom-domains) section of the settings page.
 :::
 
 ## Disabling an OAuth provider

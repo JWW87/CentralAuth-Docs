@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Overview
 
-This tab displays an overview of mettrics for this organization.
+This tab displays an overview of metrics for this organization.
 
 - Users: The number of users in the organization.
 - Email logins: The number of email authentication attempts.
