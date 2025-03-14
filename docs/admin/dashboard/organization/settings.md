@@ -49,6 +49,7 @@ An organization will inherit the settings of the parent tenant by default. You c
 - **Max inactivity time**: The maximum time in seconds a user can stay logged in without any activity. The session will expire after this time. A value of zero disables this setting.
 - **Allow localhost**: When this setting is checked, `localhost` will be allowed as referrer and domain. Only use this if you want to log in at a development environment, otherwise leave this unchecked.
 - **Check referrer during login**: When this setting is checked, the referrer of the request is checked against the whitelisted domains. Leave this checked for added security. Only uncheck this when the referrer cannot be forwarded to CentralAuth.
+- **Enable hijack protection**: When this setting is checked, user sessions will be validated on every request. It is not recommended to disable this setting.
 - **Enable autologin**: When this setting is checked, the user will be logged in automatically at all whitelisted domains, except for domains with a wildcard. Remember that the callback paths on all domains must be the same. This setting is only available when there are at least two whitelisted domains on the organization. See the [Whitelist domains](#whitelist-domains) section for more information.
 - **Default login type**: A dropdown defining the login type when the user receives an authentication email.
   - **Login link**: a one-time login link the user clicks to log in. This is the fastest login type, but less secure.
