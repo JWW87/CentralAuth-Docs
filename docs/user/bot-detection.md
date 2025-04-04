@@ -24,4 +24,4 @@ Yes, your account is still safe. The login attempt was blocked because of suspic
 
 ### Can I try again if I get a warning about suspicious behaviour?
 
-Yes, you can try to log in again. There is no cooldown period or limit on the number of login attempts. Your account will not be blocked if you get this warning.
+Yes, you can try to log in again. Your account will not be blocked if you get this warning.

@@ -160,3 +160,7 @@ npm run dev
 ```
 
 Navigate to `http://localhost:3000` to see the login button. When you click the login button, you will be redirected to the CentralAuth login page. After logging in, you will be redirected back to your application and see your email address displayed on the page.
+
+### Next steps
+
+Next, we will go into more detail about the different features of CentralAuth and how to implement them in your application. 

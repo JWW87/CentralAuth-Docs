@@ -24,7 +24,7 @@ The checkbox Captcha challenge is the simplest type of Captcha. To complete the 
 
 The number challenge asks you to click on 5 numbers in ascending order. To complete the challenge, click on the numbers in the correct order.
 
-**Example**
+**Example:**
 
 In this example, you would need to click on the numbers 0, 3, 4, 7 and 9 in that order to complete the challenge.
 
@@ -34,7 +34,7 @@ In this example, you would need to click on the numbers 0, 3, 4, 7 and 9 in that
 
 The puzzle challenge asks you to click on a specific shape in a random pattern. To complete the challenge, click on the shape that matches the description.
 
-**Example**
+**Example:**
 
 In this example, you would need to click on the only open circle in the bottom left corner to complete the challenge.
 
@@ -44,7 +44,7 @@ In this example, you would need to click on the only open circle in the bottom l
 
 The rotation challenge asks you to rotate a part of an image to match with the original image. To complete the challenge, click and drag the image until it aligns correctly with the original. You can also use the buttons below the image to rotate the image clockwise or counterclockwise. 
 
-**Example**
+**Example:**
 
 In this example, the sea, mountains and bridge are rotated. To complete the challenge, you need to rotate the image about 45 degrees clockwise to match the original image.
 
