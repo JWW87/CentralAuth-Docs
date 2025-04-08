@@ -25,6 +25,10 @@ Your callback URL will be called with a `code` and `state` query parameter.
 
 The `state` parameter is the same string that was passed to the login method. This string can be used to store any information you want to pass to the callback URL. The `state` parameter is a way to maintain state between the request and callback. You can verify the state using the `onStateReceived` callback. 
 
+:::warning
+If you have enabled autologin, the `state` parameter will be checked multiple times. Be sure to be able to verify the state for every whitelist domain on your organization.
+:::
+
 The `code` parameter is a short-lived code that can be exchanged for a long-lived access token. This exchange will be handled automatically by the library.
 
 The long-lived access token will be stored in a cookie in the user's browser. This cookie will be used to authenticate the user on subsequent requests. The cookie will be set with the `HttpOnly` and `Secure` flags, which means that it cannot be accessed by JavaScript and will only be sent over HTTPS connections.
@@ -35,17 +39,38 @@ If you cannot use the NPM library, you can handle the callback manually. The cal
 
 The `state` parameter is the same string that was passed to the login URL. Verify that this string is the same as the one you passed to the login URL, otherwise the request might be a CSRF attack. Abort the callback flow if the state does not match.
 
-The `code` parameter is a short-lived code that can be exchanged for a long-lived access token. Your OAuth library should handle this exchange automatically by using a `getToken` method. 
+:::warning
+If you have enabled autologin, the `state` parameter will be checked multiple times. Be sure to be able to verify the state for every whitelist domain on your organization.
+:::
+
+The `code` parameter is a short-lived code that can be exchanged for a long-lived access token. Your OAuth library should handle this exchange automatically by using a `getToken` method or similar. 
 
 If you have to handle this manually, you have to make a POST request to the CentralAuth token verification endpoint. The base URL for the token endpoint is `https://centralauth.com/api/v1/verify`. The POST body must contain the following parameters:
 - `code`: The code that was returned in the callback URL.
 - `redirect_uri`: The callback URL of your application. This URL must match the `redirect_uri` parameter that was passed to the login URL.
 
-Set the `Authorization` header of the request to a base64 encoded string of the client ID and client secret of your application, seperated by a colon. The client ID and client secret can be found on the CentralAuth dashboard. The format of the header is `Basic base64(client_id:client_secret)`. The `client_id` and `client_secret` can be found on the [integration](/admin/dashboard/organization/integration) page of the CentralAuth dashboard.
+Set the `Authorization` header of the request to a base64 encoded string of the client ID and client secret of your application, separated by a colon. The client ID and client secret can be found on the CentralAuth dashboard. The format of the header is `Basic base64(client_id:client_secret)`. The `client_id` and `client_secret` can be found on the [integration](/admin/dashboard/organization/integration) page of the CentralAuth dashboard.
+
+<details>
+<summary>CURL example</summary>
+
+Replace `CLIENT_ID`, `CLIENT_SECRET`, `RECEIVED_CODE` and `REDIRECT_URI` with the values of your application. 
+
+```bash
+# Create the Authorization header by base64 encoding "CLIENT_ID:CLIENT_SECRET"
+AUTH_HEADER=$(echo -n "CLIENT_ID:CLIENT_SECRET" | base64)
+
+curl -X POST https://centralauth.com/api/v1/verify \
+  -H "Authorization: Basic $AUTH_HEADER" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "code=RECEIVED_CODE" \
+  -d "redirect_uri=REDIRECT_URI"
+```
+</details>
 
 The response of the request will contain the following parameters:
 - `access_token`: The long-lived access token that can be used to authenticate the user on subsequent requests. It does not contain the user information, but can be be used to request the user information from the CentralAuth server.
-- `id_token`: The ID token is an access token that also contains the user information. This token is a JWE token that can be decoded using your client secret for direct access to the user information. Please note that while this is a faster way to retreive the user information, it is also less secure. 
+- `id_token`: The ID token is an access token that also contains the user information. This token is a JWE token that can be decoded using your client secret for direct access to the user information. Please note that while this is a faster way to retrieve the user information, it is also less secure. See the [getting the user info](/developer/userinfo) section for more information.
 - `expires_in`: The time in seconds until the access token expires. 
 - `expires_at`: The datetime when the access token expires.
 

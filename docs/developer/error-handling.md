@@ -50,3 +50,47 @@ Keep in mind that unexpected errors may occur that do not match any of the error
 
 ## Error handling in the NPM library
 When using the CentralAuth NPM library, you can handle errors by using the `catch` statement on the `Promise` object returned by the methods on the `CentralAuthClass`. The `catch` statement will contain an object with the error information. You can use this error object to display an error message to the user, redirect the user to the login screen, or implement any other kind of error handling.
+
+:::tip
+If something went wrong during the authentication flow, you can catch the error and redirect the user back to the login page. Use the `errorMessage` property to show the error message to the user. Using the [quick example](/developer/quick-example), it would look like this:
+
+```typescript
+import { CentralAuthClass } from "centralauth/server";
+
+export async function GET(req: Request, props: { params: Promise<{ action: "login" | "callback" | "user" | "logout" }> }) {
+  const { action } = await props.params;
+  
+  const requestUrl = new URL(req.url);
+  const searchParams = requestUrl.searchParams;
+
+  const authClient = new CentralAuthClass({
+    clientId: process.env.AUTH_ORGANIZATION_ID,
+    secret: process.env.AUTH_SECRET,
+    authBaseUrl: process.env.AUTH_BASE_URL,
+    callbackUrl: `${requestUrl.origin}/api/auth/callback`
+  });
+
+  let response = Response.json(null);
+  try {
+    if (action == "login")
+      response = await authClient.login(req, { errorMessage: searchParams.get("error_message") });
+    if (action == "callback")
+      response =  await authClient.callback(req);
+    if (action == "user")
+      response =  await authClient.user(req);
+    if (action == "logout")
+      response =  await authClient.logout(req);
+  } catch (error: unknown) {
+    //When an error occurs during the callback, retry the login procedure
+    if (action == "callback")
+      response = new Response(null, {
+        status: 302,
+        headers: {
+          "Location": `/api/auth/login?error_message=${error.message}`
+        }
+      })
+  }
+  return response;
+}
+```
+:::
