@@ -4,4 +4,79 @@ sidebar_position: 13
 
 # CentralAuth API
 
-Coming soon.
+You can use the official CentralAuth API for an advanced integration between your application and CentralAuth. The CentralAuth API is a RESTful API that allows you to perform various operations, such as managing tenants, organizations and users. To use the API, you need an API key from your [tenant](/admin/dashboard/tenant/api-keys) or [organization](/admin/dashboard/organization/api-keys) and set it as a Bearer token in the `Authorization` header of your requests. 
+
+## Using the CentralAuth NPM library
+
+The CentralAuth NPM library provides an SDK to interact with the CentralAuth API. To get started with the SDK, first import the client and set the API key as bearer token:
+
+```javascript
+import { client } from "centralauth/api/client.gen";
+
+client.setConfig({
+  headers: {
+    Authorization: `Bearer ${YOUR_API_KEY}`
+  }
+});
+```
+
+Then you can use all exposed methods to interact with the API. The client is automatically generated from the OpenAPI specification of the CentralAuth API, so you can use it in a type-safe way.
+
+Example of getting an organization by ID:
+
+```typescript
+import { getApiV1OrganizationById } from 'centralauth/api/sdk.gen';
+
+const organizationData = await getApiV1OrganizationById({
+  path: {
+    id: YOUR_ORGANIZATION_ID
+  }
+});
+```
+
+Example of updating the name of an organization:
+
+```typescript
+import { postApiV1OrganizationById } from 'centralauth/api/sdk.gen';
+
+const newOrganizationData = await postApiV1OrganizationById({
+  path: {
+    id: YOUR_ORGANIZATION_ID
+  },
+  body: {
+    name: "New organization name"
+  }
+});
+```
+
+## Manual integration
+
+If you cannot use the NPM library, you can use the CentralAuth API manually. The base URL for the API is `https://centralauth.com/api`, followed by the version number and endpoint name. Set the API key as Bearer token in the `Authorization` header of your requests.
+
+CURL example of getting an organization by ID:
+
+```bash
+curl -X GET "https://centralauth.com/api/v1/organization/YOUR_ORGANIZATION_ID" \
+ -H "accept: application/json" \
+ -H "authorization: Bearer YOUR_API_KEY"
+```
+
+CURL example of updating the name of an organization:
+
+```bash
+curl -X POST "https://centralauth.com/api/v1/organization/YOUR_ORGANIZATION_ID" \
+ -H "accept: application/json" \
+ -H "authorization: Bearer YOUR_API_KEY" \
+ -H "content-type: application/json" \
+ -d '{"name":"New organization name"}'
+```
+
+## API explorer
+
+You can also use the [API explorer](https://centralauth.com/api_doc) to test the API endpoints. The API explorer provides a user-friendly interface to interact with the API and see the responses in real-time. You can also generate CURL commands from the API explorer to use in your own applications.
+
+## OpenAPI specification
+
+The CentralAuth API is built using the OpenAPI specification, which is a standard way to describe RESTful APIs. The OpenAPI specification provides a machine-readable format that describes the API endpoints, request and response formats, authentication methods, and other details. This makes it easy to generate client libraries, documentation, and other tools for the API.
+
+The CentralAuth SDK is made with the [Hey API](https://heyapi.dev/) library to convert the OpenAPI specification to TypeScript. You can find the OpenAPI specification of the CentralAuth API in the [OpenAPI spec file](https://centralauth.com/api/openapi). You can use this file to generate your own client or use it with any OpenAPI-compatible library.
