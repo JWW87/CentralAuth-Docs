@@ -56,6 +56,11 @@ const config: Config = {
           label: 'Dashboard',
           position: 'left',
         },
+        {
+          to: 'https://centralauth.com/api_doc',
+          label: 'API explorer',
+          position: 'left',
+        },
       ],
     },
     footer: {
