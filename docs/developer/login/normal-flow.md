@@ -1,8 +1,8 @@
 ---
-sidebar_position: 7
+sidebar_position: 2
 ---
 
-# Starting the authentication flow
+# Default authentication flow (recommended)
 
 ## CentralAuth NPM library
 
@@ -32,3 +32,7 @@ The login page URL can also contain the following optional query parameters:
 - `email`: The email address of the user to log in. Only use this property if you are sure which user is about to log in.
 - `error_message`: An error message to show at the top of the CentralAuth login page. This way you can inform the user about the error that occurred while starting a new login flow.
 - `translations`: A base64 stringified JSON object that contains the translations for the CentralAuth login page. This object can be used to customize the text on the login page. See the [translations page](/developer/translations) section for more information.
+
+## Next step
+
+After the user has logged in, they will be redirected to the callback URL. See the [Handling the callback](/developer/callback) section for more information.
