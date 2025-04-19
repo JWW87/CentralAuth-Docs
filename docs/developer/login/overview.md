@@ -13,6 +13,7 @@ This table lists the characteristics of each flow:
 | **Supports all authentication methods**     | ✅                  | ❌                     | ✅¹                  |
 | **Compatible with all browsers**            | ✅                  | ✅                     | ❌                   |
 | **User stays on your website**              | ❌                  | ✅                     | ✅                   |
+| **Customizable login page**                 | ❌                  | ✅                     | ❌                   |
 | **Protection against suspicious activity**  | ✅                  | ❌²                    | ✅                   |
 | **Compatible with CentralAuth NPM library** | ✅                  | ✅                     | ✅                   |
 
