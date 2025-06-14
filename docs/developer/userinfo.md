@@ -93,7 +93,7 @@ The user info object will contain the following properties:
 - `email`: The email address of the user. This is the email address that was used to log in to CentralAuth.
 - `gravatar`: The [gravatar](https://www.gravatar.com) URL of the user. This URL can be used to display the user's profile picture.
 - `verified`: A boolean value that indicates whether the user's email address has been verified. This value is set to `true` if the user has verified their email address, otherwise it is set to `false`.
-- `blocked`: A boolean value that indicates whether the user is blocked. This value is set to `true` if the user is blocked, otherwise it is set to `false`. Keep in mind that a blocked user can still log in to CentralAuth. Your can decide the implications for a blocked user in your application.
+- `blocked`: A boolean value that indicates whether the user is blocked. This value is set to `true` if the user is blocked, otherwise it is set to `false`. Keep in mind that a blocked user can still log in to CentralAuth. You can decide the implications for a blocked user in your application.
 - `organizationId`: The ID of the organization that the user belongs to.
 - `created`: The date and time when the user was created.
 - `updated`: The date and time when the user was last updated.
