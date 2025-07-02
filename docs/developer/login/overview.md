@@ -8,14 +8,15 @@ There are multiple ways to start the authentication flow. The default flow is to
 
 This table lists the characteristics of each flow:
 
-|                                             | Default login flow | Direct authentication | Embedded login flow |
-| ------------------------------------------- | ------------------ | --------------------- | ------------------- |
-| **Supports all authentication methods**     | ✅                  | ❌                     | ✅¹                  |
-| **Compatible with all browsers**            | ✅                  | ✅                     | ❌                   |
-| **User stays on your website**              | ❌                  | ✅                     | ✅                   |
-| **Customizable login page**                 | ❌                  | ✅                     | ❌                   |
-| **Protection against suspicious activity**  | ✅                  | ❌²                    | ✅                   |
-| **Compatible with CentralAuth NPM library** | ✅                  | ✅                     | ✅                   |
+|                                             | Default login flow | Direct authentication      | Embedded login flow        |
+| ------------------------------------------- | ------------------ | -------------------------- | -------------------------- |
+| **Supports all authentication methods**     | ✅                  | ❌                          | ✅¹                         |
+| **Compatible with all browsers**            | ✅                  | ✅                          | ❌                          |
+| **User stays on your website**              | ❌                  | ✅                          | ✅                          |
+| **Customizable login page**                 | ❌                  | ✅                          | ❌                          |
+| **Protection against suspicious activity**  | ✅                  | ❌²                         | ✅                          |
+| **Compatible with CentralAuth NPM library** | ✅                  | ✅                          | ✅                          |
+| **Available on plan**                       | All plans          | **Pro** and **Enterprise** | **Pro** and **Enterprise** |
 
 ¹ The embedded login flow might not support passkey authentication, depending on the browser and operating system.
 

@@ -51,6 +51,11 @@ An organization will inherit the settings of the parent tenant by default. You c
 - **Check referrer during login**: When this setting is checked, the referrer of the request is checked against the whitelisted domains. Leave this checked for added security. Only uncheck this when the referrer cannot be forwarded to CentralAuth.
 - **Enable hijack protection**: When this setting is checked, user sessions will be validated on every request. It is not recommended to disable this setting.
 - **Enable autologin**: When this setting is checked, the user will be logged in automatically at all whitelisted domains, except for domains with a wildcard. Remember that the callback paths on all domains must be the same. This setting is only available when there are at least two whitelisted domains on the organization. See the [Whitelist domains](#whitelist-domains) section for more information.
+
+:::note
+Autologin is not available on the free plan.
+:::
+
 - **Default login type**: A dropdown defining the login type when the user receives an authentication email.
   - **Login link**: a one-time login link the user clicks to log in. This is the fastest login type, but less secure.
   - **Challenge**: the user will be presented with three numbers and has to click the correct number shown on the screen. This is a fast and secure login type.

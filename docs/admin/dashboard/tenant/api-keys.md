@@ -10,11 +10,15 @@ This tab displays a list of API keys that have been created for the tenant. You 
 Please ensure that you keep your API keys secure. Treat them like a password and do not share them with anyone outside your team.
 :::
 
+:::note
+API integration is not available on the free plan.
+:::
+
 ## Creating an API key
 
 To create an API key, click on the `Add API key` button. You will be prompted to enter a name for the API key. Once you have entered a name, click on the `Save` button. A popup is displayed with the created API key. You can copy the API key by clicking on the clipboard icon.
 
-:::note
+:::caution
 You can only view the API key once. If you lose the API key, you will need to create a new one.
 :::
 

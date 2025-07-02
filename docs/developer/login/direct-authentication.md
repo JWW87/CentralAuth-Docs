@@ -14,6 +14,10 @@ Using this method, the login type is set to `login link` and the login method is
 This method is not recommended for most applications, as it does not support all authentication methods and does not provide protection against suspicious activity. It is important to implement security measures to protect against suspicious activity and form spam when using this method.
 :::
 
+:::note
+Direct authentication is only available on the **Pro** and **Enterprise** plans.
+:::
+
 ## CentralAuth NPM library
 
 When using the CentralAuth NPM library, you can start the direct authentication by calling the `authenticateDirect` method on the `CentralAuthClass` instance. The `authenticateDirect` method takes a `Request` object as an argument and returns a login attempt object. The second argument of the `authenticateDirect` method is a config object that can contain the following properties:

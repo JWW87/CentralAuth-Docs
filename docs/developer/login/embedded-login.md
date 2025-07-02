@@ -10,6 +10,10 @@ The embedded login flow allows you to embed the CentralAuth login page in an ifr
 The embedded login flow is an experimental feature that may not be compatible with all browsers and devices. It is recommended to test the flow on different browsers and devices before using it in production.
 :::
 
+:::note 
+The embedded login flow is only available on the **Pro** and **Enterprise** plans.
+:::
+
 ## CentralAuth NPM library
 
 When using the CentralAuth NPM library, you can start the embedded login flow by calling the `getEmbedScript` method on the `CentralAuthClass` instance. The `getEmbedScript` method returns a script tag that you can embed in your HTML to initiate the login flow. The script tag will automatically create an iframe on your page that contains the CentralAuth login page. The `getEmbedScript` method takes a `loginPath` and `returnPath` as arguments. The `loginPath` is your path to the CentralAuth login page, and the `returnPath` is the path to redirect the user to after a successful login. Both paths are relative to the origin of the callback URL with which the `CentralAuthClass` was initialized and start with a leading `/`. 
