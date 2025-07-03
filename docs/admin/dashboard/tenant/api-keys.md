@@ -11,7 +11,7 @@ Please ensure that you keep your API keys secure. Treat them like a password and
 :::
 
 :::note
-API integration is not available on the free plan.
+API integration is not available on the **Free** plan.
 :::
 
 ## Creating an API key

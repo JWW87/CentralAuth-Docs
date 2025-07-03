@@ -14,6 +14,10 @@ This tab allows you to configure the settings of the organization.
 
 ### Custom domains
 
+:::note
+A custom domain is only available on the **Pro** and **Enterprise** plans.
+:::
+
 Custom domains allow you to use your own domain for the CentralAuth login screen. This is useful if you want to use a domain that is easier to remember and more recognizable to your users. Passkeys will also be saved specifically for this domain, meaning users will only have the choice between passkeys for this specific domain.
 
 To set up a custom domain, follow these steps:
@@ -53,7 +57,7 @@ An organization will inherit the settings of the parent tenant by default. You c
 - **Enable autologin**: When this setting is checked, the user will be logged in automatically at all whitelisted domains, except for domains with a wildcard. Remember that the callback paths on all domains must be the same. This setting is only available when there are at least two whitelisted domains on the organization. See the [Whitelist domains](#whitelist-domains) section for more information.
 
 :::note
-Autologin is not available on the free plan.
+Autologin is not available on the **Free** plan.
 :::
 
 - **Default login type**: A dropdown defining the login type when the user receives an authentication email.
@@ -70,6 +74,10 @@ Autologin is not available on the free plan.
   - **SMTP from address**: The email address from which authentication emails will be sent.
   - **SMTP user**: The username to authenticate with the SMTP server.
   - **SMTP password**: The password to authenticate with the SMTP server.
+
+:::note
+A custom SMTP server is only available on the **Pro** and **Enterprise** plans.
+:::
 
 ## Delete organization
 

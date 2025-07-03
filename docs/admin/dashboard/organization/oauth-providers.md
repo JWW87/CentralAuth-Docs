@@ -7,7 +7,7 @@ sidebar_position: 3
 This tab shows all OAuth providers you have enabled for this organization.
 
 :::note
-OAuth providers are not available on the free plan.
+OAuth providers are not available on the **Free** plan.
 :::
 
 ## Adding a new OAuth provider

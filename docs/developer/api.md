@@ -7,7 +7,7 @@ sidebar_position: 13
 You can use the official CentralAuth API for an advanced integration between your application and CentralAuth. The CentralAuth API is a RESTful API that allows you to perform various operations, such as managing tenants, organizations and users. To use the API, you need an API key from your [tenant](/admin/dashboard/tenant/api-keys) or [organization](/admin/dashboard/organization/api-keys) and set it as a Bearer token in the `Authorization` header of your requests. 
 
 :::note
-API integration is not available on the free plan.
+API integration is not available on the **Free** plan.
 :::
 
 ## Using the CentralAuth NPM library
