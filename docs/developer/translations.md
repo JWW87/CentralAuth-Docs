@@ -4,6 +4,10 @@ sidebar_position: 12
 
 # Translations
 
+:::note
+Translation are not available on the **Free** plan.
+:::
+
 When starting the login flow, you can pass an object with translations as a query parameter. This allows you to override or translate the default strings on the login pages.
 
 ## CentralAuth NPM library
