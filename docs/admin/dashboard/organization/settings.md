@@ -61,9 +61,9 @@ Autologin is not available on the **Free** plan.
 :::
 
 - **Default login type**: A dropdown defining the login type when the user receives an authentication email.
-  - **Login link**: a one-time login link the user clicks to log in. This is the fastest login type, but less secure.
+  - **One-time code**: the user receives an email with a 5-digit code to enter in the browser. This is the most secure login type (recommended and default).
   - **Challenge**: the user will be presented with three numbers and has to click the correct number shown on the screen. This is a fast and secure login type.
-  - **One-time code**: the user receives an email with a 5-digit code to enter in the browser. This is the most secure login type.
+  - **Login link**: a one-time login link the user clicks to log in. This is the fastest login type, but less secure.
 - **Default login method**: A dropdown defining where the user logs in, based on the device that receives the authentication email with a login link. This option is only available when the default login type is set to `Login link`.
   - **Local**: the user will be logged in on the device that receives the authentication email.
   - **Remote**: the user will be logged in on the device on which they start the authentication flow.
