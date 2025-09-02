@@ -53,14 +53,17 @@ An organization will inherit the settings of the parent tenant by default. You c
 - **Max inactivity time**: The maximum time in seconds a user can stay logged in without any activity. The session will expire after this time. A value of zero disables this setting.
 - **Allow localhost**: When this setting is checked, `localhost` will be allowed as referrer and domain. Only use this if you want to log in at a development environment, otherwise leave this unchecked.
 - **Check referrer during login**: When this setting is checked, the referrer of the request is checked against the whitelisted domains. Leave this checked for added security. Only uncheck this when the referrer cannot be forwarded to CentralAuth.
-- **Enable hijack protection**: When this setting is checked, user sessions will be validated on every request. It is not recommended to disable this setting.
+- **Enable hijack protection**: When this setting is checked, user sessions will be validated on every request. It is not recommended to disable this setting. When enabled, the following options are available:
+  - **IP address**: When this option is checked, the IP address of the user will be validated on every request. If the IP address changes, the session will be invalidated and the user will be logged out.
+  - **User agent**: When this option is checked, the user agent of the browser will be validated on every request. If the user agent changes, the session will be invalidated and the user will be logged out.
+  - **Device ID**: When this option is checked, the device ID of the user will be validated on every request. If the device ID changes, the session will be invalidated and the user will be logged out. This option is only used for native apps.
 - **Enable autologin**: When this setting is checked, the user will be logged in automatically at all whitelisted domains, except for domains with a wildcard. Remember that the callback paths on all domains must be the same. This setting is only available when there are at least two whitelisted domains on the organization. See the [Whitelist domains](#whitelist-domains) section for more information.
 
 :::note
 Autologin is not available on the **Free** plan.
 :::
 
-- **Default login type**: A dropdown defining the login type when the user receives an authentication email.
+- **Default login type**: A dropdown defining the login type when the user receives an authentication email. This setting is only used when authenticating for a web application. For native apps, the login type is always `One-time code`.
   - **One-time code**: the user receives an email with a 5-digit code to enter in the browser. This is the most secure login type (recommended and default).
   - **Challenge**: the user will be presented with three numbers and has to click the correct number shown on the screen. This is a fast and secure login type.
   - **Login link**: a one-time login link the user clicks to log in. This is the fastest login type, but less secure.
