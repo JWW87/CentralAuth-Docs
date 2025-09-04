@@ -17,7 +17,7 @@
   "dependencies": {
     "@docusaurus/core": "3.8.1",
     "@docusaurus/preset-classic": "3.8.1",
-    "@mdx-js/react": "^3.0.0",
+    "@mdx-js/react": "^3.1.1",
     "caniuse-lite": "^1.0.30001739",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
