@@ -9,7 +9,7 @@ When interacting with the CentralAuth API, any request that fails will return a 
 - `message`: A human readable string that describes the error. This string can be used to display an error message to the user.
 
 :::warning
-If you manually integrate the authentication flow in your application, the error handling for the callback method is slightly different. If anything went wrong during the authentication flow, the callback URL will be called with an `error_code` and `error_message` query parameter. 
+If you manually integrate the authentication flow in your application, the error handling for the callback method is slightly different. If anything went wrong during the authentication flow, the callback URL will be called with an `error` and `error_description` query parameter. 
 :::
 
 ## Error codes
@@ -55,7 +55,7 @@ When using the CentralAuth NPM library, you can handle errors by using the `catc
 :::tip
 If something went wrong during the authentication flow, you can catch the error and redirect the user back to the login page. Use the `errorMessage` property to show the error message to the user. Using the [quick example](/developer/quick-example), it would look like this:
 
-```typescript
+```tsx
 import { CentralAuthClass } from "centralauth/server";
 
 export async function GET(req: Request, props: { params: Promise<{ action: "login" | "callback" | "user" | "logout" }> }) {

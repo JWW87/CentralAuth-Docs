@@ -36,8 +36,9 @@ You can use the user's access token from the `verify` endpoint to request the us
 Set a `domain` query parameter to the domain of your application that the user is logged in to. The domain must match any registered [whitelist domain](/admin/dashboard/organization/settings#whitelist-domains) on the CentralAuth organization. The domain is used to verify that the user has enabled the session for that domain. If the domain does not match, the request will be rejected.
 
 The IP address and user agent of the user must be present in the request headers. If the request is coming from a (proxy) server, you have to include these headers manually. The headers must be set as follows:
-- `auth-ip`: The IP address of the user. This header is used to verify the user's IP address against the initial login attempt.
-- `user-agent`: The user agent of the user's browser. This header is used to verify the user's browser against the initial login attempt.
+- `auth-ip`: The IP address of the user. This header is used to verify the user's IP address against the initial login attempt. Only used for web applications.
+- `user-agent`: The user agent of the user's browser. This header is used to verify the user's browser against the initial login attempt. Only used for web applications.
+- `device-id` A unique identifier for the user's device. This header is used to verify the user's device against the initial login attempt. This can be any unique string that identifies the device, such as a UUID or a hash of the device's hardware information. Only used for native apps.
 
 Set the `Authorization` header of the request to a base64 encoded string of the client ID and client secret of your application, separated by a colon. The client ID and client secret can be found on the CentralAuth dashboard. The format of the header is `Basic base64(client_id:client_secret)`. The `client_id` and `client_secret` can be found on the [integration](/admin/dashboard/organization/integration) page of the CentralAuth dashboard.
 
@@ -85,6 +86,32 @@ Please note that retrieving the user info from the ID token will bypass the chec
 :::tip
 You can also use the ID token to retrieve the user info from the CentralAuth server the same way as the access token.
 :::
+
+## Native app
+
+You cannot get the user info directly in a native app. You will need to set up a backend server that will handle the request to the CentralAuth API. The backend server can then forward the user info to the native app. Check the [quick example](/developer/quick-example#step-8-handle-the-actions) on how to make an API route to get the user info.
+
+**Example for React Native:**
+
+```tsx
+  useEffect(() => {
+    if (accessToken) {
+      // Fetch user data using the access token
+      axios.get<User>("https://yourwebsite.com/api/auth/user", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "device-id": "UNIQUE_DEVICE_ID" // Optional, but recommended
+        }
+      }).then(({data}) => {
+        //Do something with the user data
+      }).catch(error => {
+        //Handle error (e.g. invalidate access token)
+      });
+    }
+  }, [accessToken]);
+```
+
+The API route at /api/auth/user should handle the request to the CentralAuth API and return the user info to the native app. If you use the CentralAuth NPM library, you can use the `user` method on the `CentralAuthClass` instance to automatically get the user info. Otherwise you can make the request to the CentralAuth API manually [as described above](#manual-integration).
 
 ## The user info object
 

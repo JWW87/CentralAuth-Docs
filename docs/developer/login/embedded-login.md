@@ -11,7 +11,7 @@ The embedded login flow is an experimental feature that may not be compatible wi
 :::
 
 :::note 
-The embedded login flow is only available on the **Pro** and **Enterprise** plans.
+The embedded login flow is only available on the **Pro** and **Enterprise** plans and only for web applications.
 :::
 
 ## CentralAuth NPM library

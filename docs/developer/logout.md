@@ -46,3 +46,7 @@ The request will return an empty response with a 200 OK status code. If the requ
 :::info
 Both an access token and ID token can be used to log out the user.
 :::
+
+## Native app
+
+To log out a user from a native app, simply delete the user's access token from local storage or secure storage. You don't have to make a request to the CentralAuth logout endpoint, because the session is only stored in the app itself. If you use the CentralAuth NPM library, you can call the `logout` method from the `useCentralAuth` hook to log out the user.

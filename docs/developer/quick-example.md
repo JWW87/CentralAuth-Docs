@@ -54,7 +54,7 @@ Create the folder `app/api/auth/[action]` and create a new file `route.ts` insid
 
 ## Step 6: Add a GET method
 
-```typescript
+```tsx
 export async function GET(req: Request, props: { params: Promise<{ action: "login" | "callback" | "logout" | "user" }> }) {
   const { action } = await props.params;
 
@@ -67,7 +67,7 @@ This method will handle requests to the `/api/auth/[action]` route. The `action`
 
 ## Step 7: Instantiate the CentralAuth class
 
-```typescript
+```tsx
 import { CentralAuthClass } from "centralauth/server";
 
 export async function GET(req: Request, props: { params: Promise<{ action: "login" | "callback" | "logout" | "user" }> }) {
@@ -89,7 +89,7 @@ export async function GET(req: Request, props: { params: Promise<{ action: "logi
 
 We will make a try-catch block to handle the different actions. The `login` action will redirect the user to the CentralAuth login page, the `callback` action will handle the callback from CentralAuth, the `user` action will return the user information, and the `logout` action will log the user out.
 
-```typescript
+```tsx
 import { CentralAuthClass } from "centralauth/server";
 
 export async function GET(req: Request, props: { params: Promise<{ action: "login" | "callback" | "user" | "logout" }> }) {
@@ -123,7 +123,7 @@ export async function GET(req: Request, props: { params: Promise<{ action: "logi
 
 Edit the existing page file `app/page.tsx` and add the following code:
 
-```typescript
+```tsx
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 

@@ -12,12 +12,14 @@ This table lists the characteristics of each flow:
 | ------------------------------------------- | ------------------ | -------------------------- | -------------------------- |
 | **Supports all authentication methods**     | ✅                  | ❌                          | ✅¹                         |
 | **Compatible with all browsers**            | ✅                  | ✅                          | ❌                          |
+| **Suitable for web applications**           | ✅                  | ✅                          | ✅                          |
+| **Suitable for native apps**                | ✅                  | ❌                          | ❌                          |
 | **User stays on your website**              | ❌                  | ✅                          | ✅                          |
-| **Customizable login page**                 | ❌                  | ✅                          | ❌                          |
+| **Custom login experience**                 | ❌                  | ✅                          | ❌                          |
 | **Protection against suspicious activity**  | ✅                  | ❌²                         | ✅                          |
 | **Compatible with CentralAuth NPM library** | ✅                  | ✅                          | ✅                          |
 | **Available on plan**                       | All plans          | **Pro** and **Enterprise** | **Pro** and **Enterprise** |
 
 ¹ The embedded login flow might not support passkey authentication, depending on the browser and operating system.
 
-² When using direct authentication, you are responsible for implementing security measures to protect against suspicious activity and form spam. This includes implementing rate limiting, IP blocking, Captchas and other security measures to prevent abuse of the authentication process.
+² When using direct authentication, you are responsible for implementing security measures to protect against suspicious activity. This includes implementing rate limiting, IP blocking, Captchas and other security measures to prevent abuse of the authentication process.
