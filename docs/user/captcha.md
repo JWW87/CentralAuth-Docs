@@ -11,8 +11,9 @@ CentralAuth uses four different kinds of Captcha challenges:
 - A number challenge that asks you to click on 5 numbers in ascending order.
 - A puzzle challenge to click on a specific shape in a random pattern.
 - A rotation challenge to rotate a part of an image to match with the original image.
+- A code challenge that asks you to enter the code you see on the screen.
 
-Which challenge you will get depends on the number of login attempts in the past hour. If you have not made a login attempt yet, no Captcha challenge will be shown. If you have made one login attempt, you will get the checkbox challenge. If you have made more than one login attempt, you will either get the number challenge, puzzle challenge or rotation challenge. The Captcha challenge will be shown in a modal window on top of the login screen.
+Which challenge you will get depends on the number of login attempts in the past hour. If you have not made a login attempt yet, no Captcha challenge will be shown. If you have made one login attempt, you will get the checkbox challenge. If you have made more than one login attempt, you will either get the number challenge, puzzle challenge, rotation challenge or code challenge. The Captcha challenge will be shown in a modal window on top of the login screen.
 
 ## Checkbox
 
@@ -49,3 +50,13 @@ The rotation challenge asks you to rotate a part of an image to match with the o
 In this example, the sea, mountains and bridge are rotated. To complete the challenge, you need to rotate the image about 45 degrees clockwise to match the original image.
 
 <img src="/img/CaptchaLock.png" alt="Captcha rotation challenge" width="25%" height="25%" />
+
+## Code challenge
+
+The code challenge asks you to enter the code you see on the screen. To complete the challenge, type the code into the input field.
+
+**Example:**
+
+In this example, you would need to enter the code `10213` into the input field to complete the challenge.
+
+<img src="/img/CaptchaCode.gif" alt="Captcha code challenge" width="25%" height="25%" />
