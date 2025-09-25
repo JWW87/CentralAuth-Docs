@@ -9,12 +9,12 @@ sidebar_position: 9
 When using the CentralAuth NPM library, there are two ways to get the user info.
 
 - `getUserData`: The first way is to use the `getUserData` method on the `CentralAuthClass` instance. This method takes a `Headers` object of the current request as an argument. It will return an object that contains the user info of the currently logged in user.
-- `user`: The second way is to use the `user` method on the `CentralAuthClass` instance. This method takes the `Request` object of the current request as an argument. It will return a `Response` JSON object with the user info of the currently logged in user. When the user is not logged in, the `Response` object will contain `null`. If there was an error while getting the user info, the `Response` object will contain null and any access token stored in the user's cookies will be deleted.
+- `user`: The second way is to use the `user` method on the `CentralAuthClass` instance. This method takes a `Headers` object of the current request as an argument. It will return a `Response` JSON object with the user info of the currently logged in user. When the user is not logged in, the `Response` object will contain `null`. If there was an error while getting the user info, the `Response` object will contain null and any access token stored in the user's cookies will be deleted.
 
 When requesting the user info, the library will contact the CentralAuth API to get the user info. The library will use the access token stored in the user's cookies to authenticate the request. If the user's session is still valid, the object with user info will be returned.
 
 :::caution
-If you have enabled the `unsafeIncludeUser` option, the user info will be retrieved directly from the JWE token stored in the user's cookies. This option will bypass the checks on the CentralAuth server and is not recommended for production use. Only use this option if you have minimized the risk of session hijacking and you need to get the user info without the overhead of contacting the CentralAuth API. The `unsafeIncludeUser` option is disabled by default.
+If you have enabled the `unsafeIncludeUser` option, the user info will be retrieved directly from the JWE token stored in the user's cookies. This option will bypass the checks on the CentralAuth server and is not recommended for production use. Only use this option if you have minimized the risk of session hijacking and you need to get the user info without the overhead of contacting the CentralAuth API. The `unsafeIncludeUser` option is disabled by default. If you are looking for a way to minimize overhead when retrieving user info, consider using caching instead. See the [caching documentation](/developer/caching) for more information.
 :::
 
 :::tip

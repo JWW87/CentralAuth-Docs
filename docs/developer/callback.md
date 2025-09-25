@@ -52,7 +52,7 @@ The `code` parameter is a short-lived code that can be exchanged for a long-live
 If you have to handle this manually, you have to make a POST request to the CentralAuth token verification endpoint. The base URL for the token endpoint is `https://centralauth.com/api/v1/verify`. The POST body must contain the following parameters:
 - `code`: The code that was returned in the callback URL.
 - `redirect_uri`: The callback URL of your application. This URL must match the `redirect_uri` parameter that was passed to the login URL.
-- `code_verifier`: Optional. The code verifier that was used to create the code challenge. This value must match the original code verifier that was generated during the login flow. When using a client secret, the code verifier can be omitted.
+- `code_verifier`: The code verifier that was used to create the code challenge. This value must match the original code verifier that was [generated during the login flow](/developer/login/normal-flow#manual-integration).
 
 When using a client secret, set the `Authorization` header of the request to a base64 encoded string of the client ID and client secret of your application, separated by a colon. The client ID and client secret can be found on the CentralAuth dashboard. The format of the header is `Basic base64(client_id:client_secret)`. The `client_id` and `client_secret` can be found on the [integration](/admin/dashboard/organization/integration) page of the CentralAuth dashboard.
 

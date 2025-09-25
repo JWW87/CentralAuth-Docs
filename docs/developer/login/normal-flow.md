@@ -31,10 +31,10 @@ The login page URL must contain at least the following query parameters:
 - `response_type`: The type of response you want to receive. This must always be set to `code`.
 - `redirect_uri`: The URL to redirect the user to after a successful login. The origin of the URL must match any registered [whitelist domain](/admin/dashboard/organization/settings#whitelist-domains) on the CentralAuth organization. Any `return_to` parameter should be appended as a query parameter of this URL.
 - `state`: A string that will be passed to the callback URL. This string can be used to store any information you want to pass to the callback URL. The `state` parameter is a way to maintain state between the request and callback. It is recommended to use a random but verifiable string for this parameter, unique to this user, to prevent CSRF attacks.
+- `code_challenge`: A PKCE code challenge is required to prevent CSRF and authorization code injection attacks. Generate a random code verifier and use the hashing algorithm SHA-256 to create the code challenge. Save the code verifier securely (for instance in the browser's cookies) and use it during the callback step to verify the code challenge. Check the [PKCE documentation](https://oauth.net/2/pkce) for more information.
+- `code_challenge_method`: The method used to create the code challenge. This must be set to `S256` to indicate that the SHA-256 hashing algorithm is used.
 
 The login page URL can also contain the following optional query parameters:
-- `code_challenge`: if you cannot use your client secret during the callback step (e.g. when using CentralAuth in a native app), you must provide a PKCE code challenge. Generate a random code verifier and use the hashing algorithm SHA-256 to create the code challenge. Save the code verifier securely (for instance in the browser's cookies) and use it during the callback step to verify the code challenge. Check the [PKCE documentation](https://oauth.net/2/pkce) for more information.
-- `code_challenge_method`: The method used to create the code challenge. This must be set to `S256` if you set the `code_challenge` parameter.
 - `email`: The email address of the user to log in. Only use this property if you are sure which user is about to log in.
 - `error_message`: An error message to show at the top of the CentralAuth login page. This way you can inform the user about the error that occurred while starting a new login flow.
 - `translations`: A base64 stringified JSON object that contains the translations for the CentralAuth login page. This object can be used to customize the text on the login page. See the [translations page](/developer/translations) section for more information.
@@ -55,6 +55,8 @@ import { Button, Text, View } from "react-native";
 import { Button } from "@/components/Button";
 
 export default function Index() {
+  const { login } = useCentralAuth();
+
   return <View>
       <Button onPress={login}>Log in</Button>
     </View>

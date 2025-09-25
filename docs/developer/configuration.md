@@ -20,6 +20,9 @@ Every step in the authentication flow is handled by a method in the class. The c
 - `authBaseUrl`: The base URL of the CentralAuth server. This will either be `https://centralauth.com` or your own [custom domain](/admin/dashboard/organization/settings#custom-domains).
 - `callbackUrl`: The URL to redirect to after the user has authenticated. This should be the URL of your application where you want to handle the authentication response.
 - `debug`: Optional. If set to `true`, the debug information will be logged to the console.
+- `cache`: Optional. An object with caching options. Use this to cache the user data locally to prevent multiple requests to the CentralAuth server. See the [caching documentation](/developer/caching) for more information. The object can have the following properties:
+  - `ttl`: The time-to-live for the cache in milliseconds.
+  - `storage`: The storage methods to use for caching. The Axios Cache Interceptor library is used for caching, so you can use any storage method supported by the library. See the [Axios Cache Interceptor documentation](https://axios-cache-interceptor.js.org/guide/storages) for more information.
 - `unsafeIncludeUser`: Optional. If set to `true`, the session token will include the user information. This will make it easier and faster to fetch the user information, but will bypass session hijacking and other security measures. This is not recommended for production use.
 
 **Example:**

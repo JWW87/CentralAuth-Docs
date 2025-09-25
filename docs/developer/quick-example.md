@@ -91,9 +91,11 @@ We will make a try-catch block to handle the different actions. The `login` acti
 
 ```tsx
 import { CentralAuthClass } from "centralauth/server";
+import { headers } from "next/headers";
 
-export async function GET(req: Request, props: { params: Promise<{ action: "login" | "callback" | "user" | "logout" }> }) {
+export async function GET(req: Request, props: { params: Promise<{ action: string }> }) {
   const { action } = await props.params;
+  const headerList = await headers();
   
   const requestUrl = new URL(req.url);
 
@@ -110,7 +112,7 @@ export async function GET(req: Request, props: { params: Promise<{ action: "logi
     if (action == "callback")
       return await authClient.callback(req);
     if (action == "user")
-      return await authClient.user(req);
+      return await authClient.user(headerList);
     if (action == "logout")
       return await authClient.logout(req);
   } catch (error: unknown) {

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 11
+sidebar_position: 12
 ---
 
 # Error handling
@@ -57,9 +57,11 @@ If something went wrong during the authentication flow, you can catch the error 
 
 ```tsx
 import { CentralAuthClass } from "centralauth/server";
+import { headers } from "next/headers";
 
 export async function GET(req: Request, props: { params: Promise<{ action: "login" | "callback" | "user" | "logout" }> }) {
   const { action } = await props.params;
+  const headerList = await headers();
   
   const requestUrl = new URL(req.url);
   const searchParams = requestUrl.searchParams;
@@ -78,7 +80,7 @@ export async function GET(req: Request, props: { params: Promise<{ action: "logi
     if (action == "callback")
       response =  await authClient.callback(req);
     if (action == "user")
-      response =  await authClient.user(req);
+      response =  await authClient.user(headerList);
     if (action == "logout")
       response =  await authClient.logout(req);
   } catch (error: unknown) {
