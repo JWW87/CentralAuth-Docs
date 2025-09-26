@@ -28,7 +28,7 @@ To set up a custom domain, follow these steps:
 - You should see the confirmation message `Domain is configured correctly` on the settings page.
 
 :::warning
-When using a custom domain, any OAuth provider using the default CentralAuth credentials will not be enabled on the login screen. You have to use your own credentials for these providers and set them up to redirect users to your custom domain. See the [OAuth providers](/admin/dashboard/organization/oauth-providers) section for more information.
+When using a custom domain, any OAuth provider using the default CentralAuth credentials will not be enabled on the login screen. You have to use your own credentials for these providers and set them up to redirect users to your custom domain. See the [OAuth providers](/admin/dashboard/organization/connections#oauth-providers) section for more information.
 :::
 
 ## Whitelist domains

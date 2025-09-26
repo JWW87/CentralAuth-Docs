@@ -2,15 +2,31 @@
 sidebar_position: 3
 ---
 
-# OAuth providers
+# Connections
 
-This tab shows all OAuth providers you have enabled for this organization.
+This tab allows you to configure the available authentication connections of the organization.
+
+- **Enable passkey connection**: When this option is checked, users can log in using passkeys. Passkeys are a secure and convenient way to authenticate users without the need for passwords and the recommended authentication method. When enabled, the passkey option will be shown at the top of the login screen.
+
+:::note
+Passkey connections are not available on the **Free** plan.
+:::
+
+- **Enable email connection**: When this option is checked, users can log in using their email address. Multiple options for email login are available. See the [organization settings](/admin/dashboard/organization/settings#organization-settings) section for more information.
+
+:::info
+When no authentication connections are available, email authentication is enabled regardless of this setting.
+:::
+
+## OAuth providers
+
+This section shows all third-party OAuth providers you have enabled for this organization.
 
 :::note
 OAuth providers are not available on the **Free** plan.
 :::
 
-## Adding a new OAuth provider
+### Adding a new OAuth provider
 
 Click the `Add OAuth provider` button to add a new OAuth provider. You can choose from the following providers:
 
@@ -22,7 +38,7 @@ Click the `Add OAuth provider` button to add a new OAuth provider. You can choos
 More providers will be added in the future. Check back soon for updates.
 :::
 
-## OAuth credentials
+### OAuth credentials
 
 All OAuth providers work out of the box with the default CentralAuth credentials. Using the default credentials, users see the CentralAuth logo when they log in with an OAuth provider. You can, however, use your own credentials to show your organization's logo instead. 
 
@@ -43,6 +59,6 @@ When setting up your own OAuth app, make sure to start the redirect URL to `http
 OAuth providers using the default CentralAuth credentials only work with the default CentralAuth domain. If you want to use your own custom domain, you have to use your own credentials. Any OAuth provider using the default CentralAuth credentials will not be enabled on the login screen on custom domains. You can find more details in the [custom domains](/admin/dashboard/organization/settings#custom-domains) section of the settings page.
 :::
 
-## Disabling an OAuth provider
+### Disabling an OAuth provider
 
-To disable an OAuth provider, click the trash icon next to the provider you want to disable.
+To disable an OAuth provider, click the trash icon next to the provider you want to disable and click `Save`.
