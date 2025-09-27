@@ -123,3 +123,7 @@ export async function GET(req: Request, props: { params: Promise<{ action: strin
   return response;
 }
 ```
+
+:::tip
+In this example, the access token is stored in a cookie. If you are passing the access token in the `Authorization` header, you can use that instead.
+:::
