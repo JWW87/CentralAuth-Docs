@@ -18,6 +18,10 @@ The `mandate status` field shows the status of your credit card mandate. If your
 
 The usage section displays your current usage for the billing period. It shows the number of users active in the current billing period and the number of users included in your plan. It also shows an estimation of the total number of MAUs (Monthly Active Users) at the end of the current billing period, the end date of this period, and the estimated amount of the next invoice based on your plan and usage.
 
+## Billing information
+
+The billing information section displays the billing details associated with your tenant. This information is used for your invoices. If you need to update your billing information, please contact support by using the [contact form](https://centralauth.com/contact).
+
 ## Start a paid plan
 
 If you are on the Free plan, you can start a paid plan by selecting one of the paid plans. A popup will appear where you can enter your billing information. Click on the `confirm` button to enter your payment details and start your paid plan.
