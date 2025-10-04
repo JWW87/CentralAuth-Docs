@@ -54,12 +54,18 @@ If you have to handle this manually, you have to make a POST request to the Cent
 - `redirect_uri`: The callback URL of your application. This URL must match the `redirect_uri` parameter that was passed to the login URL.
 - `code_verifier`: The code verifier that was used to create the code challenge. This value must match the original code verifier that was [generated during the login flow](/developer/login/normal-flow#manual-integration).
 
+:::note
+Keep in mind that the short-lived code your application is called with has nothing to do with the code verifier or code challenge. The code verifier and code challenge are used to verify the identity of your application, while the short-lived code is used to authenticate the user.
+:::
+
 When using a client secret, set the `Authorization` header of the request to a base64 encoded string of the client ID and client secret of your application, separated by a colon. The client ID and client secret can be found on the CentralAuth dashboard. The format of the header is `Basic base64(client_id:client_secret)`. The `client_id` and `client_secret` can be found on the [integration](/admin/dashboard/organization/integration) page of the CentralAuth dashboard.
 
-<details>
-<summary>CURL example (with client secret)</summary>
+Alternatively, you can also pass the `client_id` and `client_secret` as POST parameters in the body of the request. However, this is less secure than using the `Authorization` header and is not recommended.
 
-Replace `CLIENT_ID`, `CLIENT_SECRET`, `RECEIVED_CODE` and `REDIRECT_URI` with the values of your application. 
+<details>
+<summary>CURL example (with client secret in header)</summary>
+
+Replace `CLIENT_ID`, `CLIENT_SECRET`, `RECEIVED_CODE`, `CODE_VERIFIER` and `REDIRECT_URI` with the values of your application. 
 
 ```bash
 # Create the Authorization header by base64 encoding "CLIENT_ID:CLIENT_SECRET"
@@ -69,21 +75,25 @@ curl -X POST https://centralauth.com/api/v1/verify \
   -H "Authorization: Basic $AUTH_HEADER" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "code=RECEIVED_CODE" \
-  -d "redirect_uri=REDIRECT_URI"
+  -d "redirect_uri=REDIRECT_URI" \
+  -d "code_verifier=CODE_VERIFIER"
 ```
 </details>
 
 <details>
-<summary>CURL example (with code verifier)</summary>
+<summary>CURL example (with client secret in POST body)</summary>
 
-Replace `RECEIVED_CODE`, `REDIRECT_URI` and `CODE_VERIFIER` with the values of your application. 
+Replace `CLIENT_ID`, `CLIENT_SECRET`, `RECEIVED_CODE`, `CODE_VERIFIER` and `REDIRECT_URI` with the values of your application. 
 
 ```bash
 curl -X POST https://centralauth.com/api/v1/verify \
+  -H "Authorization: Basic $AUTH_HEADER" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "code=RECEIVED_CODE" \
   -d "redirect_uri=REDIRECT_URI" \
-  -d "code_verifier=CODE_VERIFIER"
+  -d "code_verifier=CODE_VERIFIER" \
+  -d "client_id=CLIENT_ID" \
+  -d "client_secret=CLIENT_SECRET"
 ```
 </details>
 
@@ -150,6 +160,10 @@ If you have to handle this manually, you have to make a POST request to the Cent
 - `code`: The code that was returned in the callback URL.
 - `redirect_uri`: The callback URL of your app. This URL must match the `redirect_uri` parameter that was passed to the login URL.
 - `code_verifier`: The code verifier that was used to create the code challenge. This value must match the original code verifier that was generated during the login flow. 
+
+:::note
+Keep in mind that the short-lived code your app is called with has nothing to do with the code verifier or code challenge. The code verifier and code challenge are used to verify the identity of your application, while the short-lived code is used to authenticate the user.
+:::
 
 <details>
 <summary>CURL example </summary>
