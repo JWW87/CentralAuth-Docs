@@ -17,7 +17,7 @@ When using the CentralAuth NPM library, you can pass the `translations` object a
 ```typescript
 await authClient.login(req, {
   translations: {
-    login: "Welcome! Log in to My Website.",
+    loginPageIntro: "Welcome! Log in to My Website.",
     loginAttemptSuccess: "That's all folks! Close this tab and be on your merry way.",
     loginAttemptError: "Oops! Something went wrong. Please try again.",
     undo: "Undo login at My Website"
@@ -31,7 +31,7 @@ If you cannot use the NPM library, you can pass the translations object as a bas
 
 ```typescript
 const translations = {
-  login: "Welcome! Log in to My Website.",
+  loginPageIntro: "Welcome! Log in to My Website.",
   loginAttemptSuccess: "That's all folks! Close this tab and be on your merry way.",
   loginAttemptError: "Oops! Something went wrong. Please try again.",
   undo: "Undo login at My Website"
