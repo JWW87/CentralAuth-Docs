@@ -10,7 +10,7 @@ Configuration of your application depends on the type of application you are dev
 
 ### CentralAuth NPM library
 
-When using the CentralAuth NPM library, you first need to choose between the two available classes: `CentralAuthClass` and `CentralAuthHTTPClass`. Based on your web server, you can choose the class that best fits your needs. When using a [Fetch API server](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (like NextJS), you should use the `CentralAuthClass`. When using an [HTTP server](https://nodejs.org/api/http.html) (like Express), you should use the `CentralAuthHTTPClass`.
+When using the CentralAuth NPM library, you first need to choose between the two available classes: `CentralAuthClass` and `CentralAuthHTTPClass`. Based on your web server, you can choose the class that best fits your needs. When using a [Fetch API server](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (like Next.js), you should use the `CentralAuthClass`. When using an [HTTP server](https://nodejs.org/api/http.html) (like Express), you should use the `CentralAuthHTTPClass`.
 
 #### Class constructor
 
@@ -41,6 +41,12 @@ const authClient = new CentralAuthClass({
 ### Manual configuration
 
 If you cannot use the NPM library, you can still use CentralAuth by manually configuring the authentication flow. It is recommended to use an OAuth 2.0 library for your programming language to handle the authentication flow. You can find more information about the OAuth 2.0 flow in the docs of the library you choose.
+
+CentralAuth provides an OpenID Connect discovery endpoint that contains all the necessary OAuth 2.0 configuration details at `https://centralauth.com/.well-known/openid-configuration`. This endpoint returns a JSON document with all the OAuth 2.0 endpoints, supported scopes, response types, and other configuration details needed for authentication. Most OAuth 2.0 libraries support automatic configuration using the discovery URL. Simply provide the discovery URL to your OAuth library, and it will automatically fetch and configure the necessary endpoints.
+
+:::tip
+If you are using a [custom domain](/admin/dashboard/organization/settings#custom-domains), replace `centralauth.com` in the `authorization_endpoint` with your custom domain.
+:::
 
 ## Native app
 

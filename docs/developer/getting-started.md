@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Getting started
 
-CentralAuth is compatible with any application that supports OAuth 2.0. Whether you're building a NodeJS application, a Python web app or a PHP website, you can easily integrate CentralAuth into your project. We will be using [NextJS](https://nextjs.org) for the examples in this documentation, but the concepts and steps are applicable to any programming language or framework.
+CentralAuth is compatible with any application that supports OAuth 2.0. Whether you're building a Node.js application, a Python web app or a PHP website, you can easily integrate CentralAuth into your project. We will be using [Next.js](https://nextjs.org) for the examples in this documentation, but the concepts and steps are applicable to any programming language or framework.
 
 This guide will walk you through the process of integrating CentralAuth into your application, including setting up your application, configuring the OAuth flow, and handling user authentication.
 

@@ -33,9 +33,9 @@ Stateful servers (traditional web servers, VPS, dedicated servers) maintain stat
 
 For instance, for an Apache or Nginx server, the in-memory cache will remain available as long as the server is running, and you can use the PHP session or other mechanisms to save cached data across requests.
 
-#### Example for a NodeJS server
+#### Example for a Node.js server
 
-When using a NodeJS server, you can instantiate the `CentralAuthClass` with [node-cache](https://github.com/node-cache/node-cache) as follows:
+When using a Node.js server, you can instantiate the `CentralAuthClass` with [node-cache](https://github.com/node-cache/node-cache) as follows:
 
 ```typescript
 import { CentralAuthClass } from "centralauth/server";
@@ -83,9 +83,9 @@ Serverless functions (AWS Lambda, Vercel Functions, Cloudflare Workers) have dif
 - Evaluate if the caching overhead is worth the performance gain in your specific use case
 - Use any built-in caching mechanisms provided by your framework or platform
 
-#### Example for NextJS
+#### Example for Next.js
 
-NextJS provided a Data Cache layer that can be used to cache the user info, even in a serverless environment. Check the [NextJS documentation](https://nextjs.org/docs/app/building-your-application/data-fetching/caching) for more information. Unfortunately, there are no methods to get or store data in the cache directly, so you cannot set the `cache` object in the `CentralAuthClass`. As a workaround, you can use the `unstable_cache` function to store the user info in the cache. The `unstable_cache` function takes a function that returns the user info. The function will be called again when the cache expires. Adding to the example from the [quick example](/developer/quick-example#step-8-handle-the-actions) page, you can use the `unstable_cache` function as follows:
+Next.js provided a Data Cache layer that can be used to cache the user info, even in a serverless environment. Check the [Next.js documentation](https://nextjs.org/docs/app/building-your-application/data-fetching/caching) for more information. Unfortunately, there are no methods to get or store data in the cache directly, so you cannot set the `cache` object in the `CentralAuthClass`. As a workaround, you can use the `unstable_cache` function to store the user info in the cache. The `unstable_cache` function takes a function that returns the user info. The function will be called again when the cache expires. Adding to the example from the [quick example](/developer/quick-example#step-8-handle-the-actions) page, you can use the `unstable_cache` function as follows:
 
 ```typescript
 import { getCentralAuthClient } from "@/global/auth";

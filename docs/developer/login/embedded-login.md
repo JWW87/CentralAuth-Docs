@@ -24,7 +24,7 @@ Steps to follow:
 - Create a `<script>` element in your HTML and set its content to the script returned by the `getEmbedScript` method.
 
 :::tip
-If you are working with a framework like NextJS, you probably have to use a different component to create the script tag. For example, in NextJS you can use the `Script` component from `next/script` to create the script tag.
+If you are working with a framework like Next.js, you probably have to use a different component to create the script tag. For example, in Next.js you can use the `Script` component from `next/script` to create the script tag.
 
 ```javascript	
 const embedScript = authClient.getEmbedScript("/api/auth/login", "/");

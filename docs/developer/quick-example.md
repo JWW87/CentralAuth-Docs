@@ -4,9 +4,9 @@ sidebar_position: 4
 
 # Quick example
 
-First, we will be showing a quick example of how to use the CentralAuth NPM library in a NextJS application. This will give you a good idea of how to use the library and what it can do. After that, we will go into more detail about the different features and how to use them.
+First, we will be showing a quick example of how to use the CentralAuth NPM library in a Next.js application. This will give you a good idea of how to use the library and what it can do. After that, we will go into more detail about the different features and how to use them.
 
-## Step 1: Create a new NextJS application
+## Step 1: Create a new Next.js application
 
 ```bash
 npx create-next-app@latest --ts --tailwind --turbopack --yes my-auth-app
@@ -55,7 +55,7 @@ Create the folder `app/api/auth/[action]` and create a new file `route.ts` insid
 ## Step 6: Add a GET method
 
 ```tsx
-export async function GET(req: Request, props: { params: Promise<{ action: "login" | "callback" | "logout" | "user" }> }) {
+export async function GET(req: Request, props: { params: Promise<{ action: string }> }) {
   const { action } = await props.params;
 
   const requestUrl = new URL(req.url);
@@ -70,7 +70,7 @@ This method will handle requests to the `/api/auth/[action]` route. The `action`
 ```tsx
 import { CentralAuthClass } from "centralauth/server";
 
-export async function GET(req: Request, props: { params: Promise<{ action: "login" | "callback" | "logout" | "user" }> }) {
+export async function GET(req: Request, props: { params: Promise<{ action: string }> }) {
   const { action } = await props.params;
   
   const requestUrl = new URL(req.url);
