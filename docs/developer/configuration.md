@@ -38,6 +38,10 @@ const authClient = new CentralAuthClass({
 });
 ```
 
+:::caution
+Make sure you use a new instance of the class for every request to prevent session leakage between users. The user data will be stored in the instance of the class, so never reuse the same instance across sessions.
+:::
+
 ### Manual configuration
 
 If you cannot use the NPM library, you can still use CentralAuth by manually configuring the authentication flow. It is recommended to use an OAuth 2.0 library for your programming language to handle the authentication flow. You can find more information about the OAuth 2.0 flow in the docs of the library you choose.

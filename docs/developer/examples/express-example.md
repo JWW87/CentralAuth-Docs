@@ -26,7 +26,6 @@ Install Express.js and the CentralAuth library along with other necessary depend
 
 ```bash
 npm install --save express centralauth dotenv
-npm install -D nodemon
 ```
 
 ## Step 3: Set up environment variables
@@ -59,13 +58,16 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Initialize CentralAuth
-const authClient = new CentralAuthHTTPClass({
-  clientId: process.env.AUTH_ORGANIZATION_ID,
-  secret: process.env.AUTH_SECRET,
-  authBaseUrl: process.env.AUTH_BASE_URL,
-  callbackUrl: `http://localhost:${PORT}/auth/callback`
-});
+const getCentralAuthInstance = () => {
+  // Initialize CentralAuth
+  // Make sure to get a new instance for each request to avoid state issues!
+  return new CentralAuthHTTPClass({
+    clientId: process.env.AUTH_ORGANIZATION_ID,
+    secret: process.env.AUTH_SECRET,
+    authBaseUrl: process.env.AUTH_BASE_URL,
+    callbackUrl: `http://localhost:${PORT}/auth/callback`
+  });
+}
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -158,6 +160,7 @@ app.get('/', (req, res) => {
 // Authentication routes
 app.get('/auth/login', async (req, res) => {
   try {
+    const authClient = getCentralAuthInstance();
     await authClient.loginHTTP(req, res, { returnTo: `http://localhost:${PORT}/profile` });
   } catch (error) {
     console.error('Login error:', error);
@@ -167,6 +170,7 @@ app.get('/auth/login', async (req, res) => {
 
 app.get('/auth/callback', async (req, res) => {
   try {
+    const authClient = getCentralAuthInstance();
     await authClient.callbackHTTP(req, res);
   } catch (error) {
     console.error('Callback error:', error);
@@ -176,6 +180,7 @@ app.get('/auth/callback', async (req, res) => {
 
 app.get('/auth/user', async (req, res) => {
   try {
+    const authClient = getCentralAuthInstance();
     await authClient.userHTTP(req, res);
   } catch (error) {
     console.error('User info error:', error);
@@ -185,6 +190,7 @@ app.get('/auth/user', async (req, res) => {
 
 app.get('/auth/logout', async (req, res) => {
   try {
+    const authClient = getCentralAuthInstance();
     // Handle logout with CentralAuth
     await authClient.logoutHTTP(req, res, { returnTo: `http://localhost:${PORT}` });
   } catch (error) {
@@ -197,6 +203,7 @@ app.get('/auth/logout', async (req, res) => {
 app.get('/profile', async (req, res) => {
   let user = null;
   try {
+    const authClient = getCentralAuthInstance();
     user = await authClient.getUserDataHTTP(req);
   } catch (error) {
     console.log('Could not fetch fresh user data');
@@ -346,26 +353,12 @@ app.listen(PORT, () => {
 export default app;
 ```
 
-## Step 5: Add package.json scripts
+## Step 5: Run the application
 
-Update your `package.json` to include the necessary scripts:
-
-```json
-"scripts": {
-  "dev": "nodemon server.js",
-  "start": "node server.js"
-}
-```
-
-## Step 6: Run the application
-
-Start your Express.js application:
+Start the Express.js application:
 
 ```bash
-# Start in development mode with auto-reload
-npm run dev
-# Or to run without auto-reload
-npm run start
+node server.js
 ```
 
 Navigate to `http://localhost:3000` to see your application running.
