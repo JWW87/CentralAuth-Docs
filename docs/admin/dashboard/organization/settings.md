@@ -22,13 +22,22 @@ Custom domains allow you to use your own domain for the CentralAuth login screen
 
 To set up a custom domain, follow these steps:
 - Enter the custom domain in the `Custom domain` field under general settings.
-- Add a CNAME record to your domain's DNS settings. Ask your development team or hosting provider for help if you're not sure how to do this. Set the CNAME value to `centralauth.com.`. See the on-screen instructions for more information.
+- Add a CNAME record to your domain's DNS settings. Ask your development team or hosting provider for help if you're not sure how to do this. Since CentralAuth is available in multiple regions, make sure to point the CNAME record to the correct CentralAuth domain based on your organization's region:
+  - Use the Global zone at `custom.centralauth.com.` when your visitors are from all around the world or when you don't know their location.
+  - Use the EMEA zone at `custom-eu.centralauth.com.` when your visitors are primarily from Europe, the Middle East or Africa.
+  - Use the Americas zone at `custom-us.centralauth.com.` when your visitors are primarily from North or South America.
+  - Use the APAC zone at `custom-as.centralauth.com.` when your visitors are primarily from Asia, Australia or Oceania.
+- Add a TXT record as `_centralauth` to your domain's DNS settings with the domain verification code shown on the settings page. This is required to verify that you own the domain. This is needed because multiple organizations can use the same custom domain. Since all custom domains are pointed to the same CentralAuth server, anyone would be able to use your custom domain otherwise. The verification code is the same for all organizations with the same custom domain under the same tenant. If you have multiple custom domains, you can add additional `_centralauth` TXT records for each domain.
 - Wait for the DNS changes to propagate. This can take up to 24 hours.
-- Your custom domain will automatically be verified once the DNS changes have propagated. A certificate will be issued for your domain, and the login screen will be available at your custom domain. 
+- Your custom domain will automatically be verified once the DNS changes have propagated. A certificate will be issued for your domain, and the login screen will be available at your custom domain. When the certificate cannot be issued automatically, make sure that the DNS settings are correct and that the changes have fully propagated. Remove and re-add the custom domain if necessary.
 - You should see the confirmation message `Domain is configured correctly` on the settings page.
 
 :::warning
 When using a custom domain, any OAuth provider using the default CentralAuth credentials will not be enabled on the login screen. You have to use your own credentials for these providers and set them up to redirect users to your custom domain. See the [OAuth providers](/admin/dashboard/organization/connections#oauth-providers) section for more information.
+:::
+
+:::tip
+Due to technical limitations, users cannot be routed to the closest CentralAuth region automatically, even when using the Global zone. If your own DNS provider supports GeoDNS, you can set up multiple CNAME records for your custom domain, each pointing to the appropriate zone (`custom-eu.centralauth.com.`, `custom-us.centralauth.com.` and `custom-as.centralauth.com.`) based on the user's location. This way, users will be routed to the closest CentralAuth region when accessing your custom domain, ensuring the least latency.
 :::
 
 ## Whitelist domains

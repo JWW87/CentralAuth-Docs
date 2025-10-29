@@ -24,7 +24,7 @@ When using the `CentralAuthHTTPClass` subclass, the login method is called `logi
 
 ### Manual integration
 
-If you cannot use the NPM library, you can start the authentication flow by redirecting the user to the CentralAuth login page. The base URL for the login page is `https://centralauth.com/login` or use your own [custom domain](/admin/dashboard/organization/settings#custom-domains), e.g. `https://auth.example.com/login`. 
+If you cannot use the NPM library, you can start the authentication flow by redirecting the user to the CentralAuth login page. The base URL for the login page is `https://centralauth.com/login`, your CentralAuth subdomain or use your own [custom domain](/admin/dashboard/organization/settings#custom-domains), e.g. `https://auth.example.com/login`.
 
 The login page URL must contain at least the following query parameters:
 - `client_id`: The client ID of your application. This is the ID of your organization found on the CentralAuth dashboard. See the [integration](/admin/dashboard/organization/integration) section for more information.

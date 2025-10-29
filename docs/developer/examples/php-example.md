@@ -33,7 +33,7 @@ function get_provider()
     'clientId'          => 'your-client-id',
     'clientSecret'      => 'your-client-secret',
     'redirectUri'       => 'https://your-app.com/callback',
-    'urlAuthorize'      => 'https://centralauth.com/login', // or your custom domain
+    'urlAuthorize'      => 'https://centralauth.com/login', // or your custom domain or CentralAuth subdomain
     'urlAccessToken'    => 'https://centralauth.com/api/v1/verify', 
     'urlResourceOwnerDetails' => 'https://centralauth.com/api/v1/userinfo', 
   ]);

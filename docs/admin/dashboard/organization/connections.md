@@ -53,10 +53,14 @@ Both client ID and client secret can be found in the developer console of the re
 - [Microsoft Entra ID docs](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)
 - [GitHub OAuth docs](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)
 
-When setting up your own OAuth app, make sure to start the redirect URL to `https://centralauth.com/api/oauth/callback` if you're not using a custom domain. If you are using a custom domain, use that instead. For example, if your custom domain is `login.example.com`, the redirect URL should be `https://login.example.com/api/oauth/callback`.
+When setting up your own OAuth app, make sure to start the redirect URL to `https://centralauth.com/api/oauth/callback` if you're not using a custom domain or CentralAuth subdomain. 
+
+If you are using a custom domain, use that instead. For example, if your custom domain is `login.example.com`, the redirect URL should be `https://login.example.com/api/oauth/callback`.
+
+You can also use a CentralAuth subdomain. For example, if your CentralAuth subdomain is `my-org.centralauth.com`, the redirect URL should be `https://my-org.centralauth.com/api/oauth/callback`.
 
 :::warning
-OAuth providers using the default CentralAuth credentials only work with the default CentralAuth domain. If you want to use your own custom domain, you have to use your own credentials. Any OAuth provider using the default CentralAuth credentials will not be enabled on the login screen on custom domains. You can find more details in the [custom domains](/admin/dashboard/organization/settings#custom-domains) section of the settings page.
+OAuth providers using the default CentralAuth credentials only work with the default CentralAuth domain. If you want to use your own custom domain or a CentralAuth subdomain, you have to use your own credentials. Any OAuth provider using the default CentralAuth credentials will not be enabled on the login screen domains other than the default CentralAuth domain. You can find more info in the [Which domain should I use?](/admin/dashboard/organization/integration#which-domain-should-i-use) section.
 :::
 
 ### Disabling an OAuth provider

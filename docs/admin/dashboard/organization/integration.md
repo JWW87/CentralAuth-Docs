@@ -6,13 +6,21 @@ sidebar_position: 2
 
 This tab shows all the information needed to integrate CentralAuth with your application. You can find the following information:
 
-- **Domain**: The domain to which you can redirect users to log in. This is centralauth.com by default, but you can change it to your own custom domain. See the [organization settings tab](/admin/dashboard/organization/settings) for more information.
+- **Domain**: The domain to which you can redirect users to log in. This is `centralauth.com` by default, but you can change it to your own [custom domain](/admin/dashboard/organization/settings#custom-domains) or CentralAuth subdomain. You don't have to choose here which domain to use; you can use any of them interchangeably. However, there are some differences between the domains. See the [Which domain should I use?](#which-domain-should-i-use) section for more information.
 - **Client ID**: The unique ID for this organization to use in your application.
 - **Client Secret**: The secret key for this organization to use in your application.
 
 :::tip
 To integrate CentralAuth with your application, you require some technical knowledge. If you need help, contact your development team or check the [developer documentation](/category/developers).
 :::
+
+## Which domain should I use?
+
+You can use any of the following domains to redirect users to log in:
+
+- **`centralauth.com`**: This is the default domain and will work for most use cases. The default OAuth providers (like Google, Facebook, etc.) will also work out of the box with this domain without any additional configuration. Passkeys will also work, but all passkeys will be created under the `centralauth.com` domain for all organizations using this domain. This might be confusing for users having multiple accounts on different organizations using the same domain. It is recommended to use a custom domain or subdomain when using passkeys.
+- **Your CentralAuth subdomain**: When you created your organization, a subdomain was automatically created for you (e.g. `your-organization.centralauth.com`). You can use this subdomain to redirect users to log in. This way, users will see your organization's name in the URL, which increases trust. However, the default OAuth providers will not work out of the box with this domain. You have to configure each OAuth provider to accept logins from this subdomain. Check the [OAuth provider documentation](/admin/dashboard/organization/connections#oauth-providers) for more information.
+- **Your own custom domain**: If you have a custom domain set up, you can use it to redirect users to the login page. This way, users will see your own domain in the URL, which increases trust even more. However, the default OAuth providers will not work out of the box with this domain. You have to configure each OAuth provider to accept logins from this custom domain. Check the [OAuth provider documentation](/admin/dashboard/organization/connections#oauth-providers) for more information.
 
 ## Generating a new client secret
 

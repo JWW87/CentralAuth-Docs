@@ -41,7 +41,7 @@ PORT=3000
 
 Replace the example values with:
 - `AUTH_ORGANIZATION_ID` and `AUTH_SECRET`: Get these from your [CentralAuth integration page](/admin/dashboard/organization/integration)
-- `AUTH_BASE_URL`: Use `https://centralauth.com` or your [custom domain](/admin/dashboard/organization/settings#custom-domains)
+- `AUTH_BASE_URL`: Use `https://centralauth.com`, your CentralAuth subdomain or your [custom domain](/admin/dashboard/organization/settings#custom-domains)
 - `PORT`: The port your Express.js server will run on (default is 3000)
 
 ## Step 4: Create the main server file

@@ -46,13 +46,27 @@ AUTH_ORGANIZATION_ID=your_organization_id
 AUTH_SECRET=your_secret
 AUTH_BASE_URL=https://your_auth_base_url
 ```
-Replace the example values with the values you got from the CentralAuth dashboard. The `AUTH_BASE_URL` is the URL you use to redirect to CentralAuth, which will either be `https://centralauth.com` or your own [custom domain](/admin/dashboard/organization/settings#custom-domains). The `AUTH_ORGANIZATION_ID` and `AUTH_SECRET` are the client ID and secret that are used to authenticate your application with CentralAuth. See the [integration page](/admin/dashboard/organization/integration) for more information.
+Replace the example values with the values you got from the CentralAuth dashboard. The `AUTH_BASE_URL` is the URL you use to redirect to CentralAuth, which will either be `https://centralauth.com`, a CentralAuth subdomain or your own [custom domain](/admin/dashboard/organization/settings#custom-domains). The `AUTH_ORGANIZATION_ID` and `AUTH_SECRET` are the client ID and secret that are used to authenticate your application with CentralAuth. See the [integration page](/admin/dashboard/organization/integration) for more information.
 
-## Step 5: Create a new API route for authentication
+## Step 5: Update config file
+
+You might need to update your `next.config.js` file to enable the NPM package support in Turbopack. Update the file to look like this:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Other config options...
+  transpilePackages: ["centralauth"]
+};
+
+module.exports = nextConfig;
+```
+
+## Step 6: Create a new API route for authentication
 
 Create the folder `app/api/auth/[action]` and create a new file `route.ts` inside it. This will be the API route that will handle authentication requests.
 
-## Step 6: Add a GET method
+## Step 7: Add a GET method
 
 ```tsx
 export async function GET(req: Request, props: { params: Promise<{ action: string }> }) {
@@ -65,7 +79,7 @@ export async function GET(req: Request, props: { params: Promise<{ action: strin
 
 This method will handle requests to the `/api/auth/[action]` route. The `action` parameter will be used to determine what action to take.
 
-## Step 7: Instantiate the CentralAuth class
+## Step 8: Instantiate the CentralAuth class
 
 ```tsx
 import { CentralAuthClass } from "centralauth/server";
@@ -85,7 +99,7 @@ export async function GET(req: Request, props: { params: Promise<{ action: strin
 }
 ```
 
-## Step 8: Handle the actions
+## Step 9: Handle the actions
 
 We will make a try-catch block to handle the different actions. The `login` action will redirect the user to the CentralAuth login page, the `callback` action will handle the callback from CentralAuth, the `user` action will return the user information, and the `logout` action will log the user out.
 
@@ -121,7 +135,7 @@ export async function GET(req: Request, props: { params: Promise<{ action: strin
 }
 ```
 
-## Step 9: Create a new page for the login
+## Step 10: Create a new page for the login
 
 Edit the existing page file `app/page.tsx` and add the following code:
 
@@ -153,7 +167,7 @@ export default function Home() {
 
 This page will display the user's email address if the user is logged in, and a login button if the user is not logged in.
 
-## Step 10: Run the application
+## Step 11: Run the application
 
 That's it! You can now run the application using the following command:
 

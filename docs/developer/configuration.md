@@ -17,7 +17,7 @@ When using the CentralAuth NPM library, you first need to choose between the two
 Every step in the authentication flow is handled by a method in the class. The constructor of the class takes an object with the following properties:
 - `clientId`: The organization ID you got from the CentralAuth dashboard. See the [integration page](/admin/dashboard/organization/integration) for more information. 
 - `secret`: The secret you got from the CentralAuth dashboard.
-- `authBaseUrl`: The base URL of the CentralAuth server. This will either be `https://centralauth.com` or your own [custom domain](/admin/dashboard/organization/settings#custom-domains).
+- `authBaseUrl`: The base URL of the CentralAuth server. This will either be `https://centralauth.com`, your CentralAuth subdomain or your own [custom domain](/admin/dashboard/organization/settings#custom-domains).
 - `callbackUrl`: The URL to redirect to after the user has authenticated. This should be the URL of your application where you want to handle the authentication response.
 - `debug`: Optional. If set to `true`, the debug information will be logged to the console.
 - `cache`: Optional. An object with caching options. Use this to cache the user data locally to prevent multiple requests to the CentralAuth server. See the [caching documentation](/developer/caching) for more information. The object can have the following properties:
@@ -49,7 +49,7 @@ If you cannot use the NPM library, you can still use CentralAuth by manually con
 CentralAuth provides an OpenID Connect discovery endpoint that contains all the necessary OAuth 2.0 configuration details at `https://centralauth.com/.well-known/openid-configuration`. This endpoint returns a JSON document with all the OAuth 2.0 endpoints, supported scopes, response types, and other configuration details needed for authentication. Most OAuth 2.0 libraries support automatic configuration using the discovery URL. Simply provide the discovery URL to your OAuth library, and it will automatically fetch and configure the necessary endpoints.
 
 :::tip
-If you are using a [custom domain](/admin/dashboard/organization/settings#custom-domains), replace `centralauth.com` in the `authorization_endpoint` with your custom domain.
+If you are using a [custom domain](/admin/dashboard/organization/settings#custom-domains) or CentralAuth subdomain, replace `centralauth.com` in the `authorization_endpoint` with your custom domain or subdomain.
 :::
 
 ## Native app
@@ -75,7 +75,7 @@ The `CentralAuthProvider` component takes the following props:
 - `clientId`: The client ID you got from the CentralAuth dashboard. See the [integration page](/admin/dashboard/organization/integration) for more information.
 - `appId`: The bundle ID / package name for your app. This is set in your app and must match an app registration on the [integration page](/admin/dashboard/organization/integration#native-app-registration).
 - `deviceId`: A unique device ID for the user's device. This can be any unique string that identifies the device, such as a UUID or a hash of the device's hardware information and will be used when requesting the user info. This is optional but recommended.
-- `authBaseUrl`: The base URL of the CentralAuth server. This will either be `https://centralauth.com` or your own [custom domain](/admin/dashboard/organization/settings#custom-domains).
+- `authBaseUrl`: The base URL of the CentralAuth server. This will either be `https://centralauth.com`, your CentralAuth subdomain or your own [custom domain](/admin/dashboard/organization/settings#custom-domains).
 - `callbackUrl`: The URL to redirect to after the user has authenticated. The callback URL has to be configured as an App Link / Universal Link  and must match an app registration on the [integration page](/admin/dashboard/organization/integration#native-app-registration).
 
 ### Manual configuration

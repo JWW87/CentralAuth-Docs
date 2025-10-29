@@ -12,7 +12,7 @@ In this section, we will explore the key components of the login flow and how to
 
 ### Step 1: User initiates login
 
-The user starts the login process in your application. This action triggers a redirect to the CentralAuth authorization endpoint, which will either be `centralauth.com` or a [custom domain](/admin/dashboard/organization/settings#custom-domains).
+The user starts the login process in your application. This action triggers a redirect to the CentralAuth authorization endpoint, which will either be `centralauth.com`, a CentralAuth subdomain or a [custom domain](/admin/dashboard/organization/settings#custom-domains).
 
 ### Step 2: User authentication
 
