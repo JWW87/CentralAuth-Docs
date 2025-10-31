@@ -85,7 +85,7 @@ Serverless functions (AWS Lambda, Vercel Functions, Cloudflare Workers) have dif
 
 #### Example for Next.js
 
-Next.js provided a Data Cache layer that can be used to cache the user info, even in a serverless environment. Check the [Next.js documentation](https://nextjs.org/docs/app/building-your-application/data-fetching/caching) for more information. Unfortunately, there are no methods to get or store data in the cache directly, so you cannot set the `cache` object in the `CentralAuthClass`. As a workaround, you can use the `unstable_cache` function to store the user info in the cache. The `unstable_cache` function takes a function that returns the user info. The function will be called again when the cache expires. Adding to the example from the [quick example](/developer/quick-example#step-8-handle-the-actions) page, you can use the `unstable_cache` function as follows:
+Next.js provided a Data Cache layer that can be used to cache the user info, even in a serverless environment. Check the [Next.js documentation](https://nextjs.org/docs/app/building-your-application/data-fetching/caching) for more information. Unfortunately, there are no methods to get or store data in the cache directly, so you cannot set the `cache` object in the `CentralAuthClass`. As a workaround, you can use the `unstable_cache` function to store the user info in the cache. The `unstable_cache` function takes a function that returns the user info. The function will be called again when the cache expires. Adding to the example from the [quick example](/developer/quick-example#step-9-handle-the-actions) page, you can use the `unstable_cache` function as follows:
 
 ```typescript
 import { getCentralAuthClient } from "@/global/auth";

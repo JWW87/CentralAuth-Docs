@@ -82,6 +82,9 @@ const config: Config = {
       // Public API key: it is safe to commit it
       apiKey: 'b91b57ee666aedb7ba01fafc38151fdf',
 
+      //AI assistant ID
+      askAi: "56Y8hJR9dcNO",
+
       indexName: 'centralauth',
 
       // Optional: see doc section below

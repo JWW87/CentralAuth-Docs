@@ -89,7 +89,7 @@ You can also use the ID token to retrieve the user info from the CentralAuth ser
 
 ## Native app
 
-You cannot get the user info directly in a native app. You will need to set up a backend server that will handle the request to the CentralAuth API. The backend server can then forward the user info to the native app. Check the [quick example](/developer/quick-example#step-8-handle-the-actions) on how to make an API route to get the user info.
+You cannot get the user info directly in a native app. You will need to set up a backend server that will handle the request to the CentralAuth API. The backend server can then forward the user info to the native app. Check the [quick example](/developer/quick-example#step-9-handle-the-actions) on how to make an API route to get the user info.
 
 **Example for React Native:**
 
